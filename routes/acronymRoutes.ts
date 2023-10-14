@@ -1,4 +1,9 @@
 import express from 'express'
+import { getAcronyms } from '../controllers/acronyms/getAcronyms'
+import { getAcronym } from '../controllers/acronyms/getAcronym'
+import { createAcronym } from '../controllers/acronyms/createAcronym'
+import { deleteAcronym } from '../controllers/acronyms/deleteAcronym'
+import { updateAcronym } from '../controllers/acronyms/updateAcronym'
 
 const router = express.Router()
 
@@ -8,20 +13,16 @@ const router = express.Router()
  * @description Get all acronyms
  * @access Public
  */
-router.get('/', (req, res) => {
-  res.status(200).json({ message: 'Get all acronyms' })
-})
+router.get('/', getAcronyms)
 
 /**
  * @route /api/acronyms/:id
  * @method GET
  * @description - Get acronym by id
- * @param { string } id
+ * @param /:id - acronym id
  * @access Public
  */
-router.get('/:id', (req, res) => {
-  res.status(200).json({ message: 'Get acronym by id' })
-})
+router.get('/:id', getAcronym)
 
 /**
  * @route /api/acronyms
@@ -29,31 +30,25 @@ router.get('/:id', (req, res) => {
  * @description Create acronym
  * @access Public
  */
-router.post('/', (req, res) => {
-  res.status(200).json({ message: 'Create acronym' })
-})
+router.post('/', createAcronym)
 
 /**
  * @route /api/acronyms/:id
  * @method PATCH
  * @description Update acronym
- * @param { string } id
+ * @params /:id - acronym id
  * @access Public
  */
-router.patch('/:id', (req, res) => {
-  res.status(200).json({ message: 'Update acronym' })
-})
+router.patch('/:id', updateAcronym)
 
 /**
  * @route /api/acronyms/:id
  * @method DELETE
  * @description Delete acronym
- * @param { string } id
+ * @params /:id - acronym id
  * @access Public
  */
-router.delete('/:id', (req, res) => {
-  res.status(200).json({ message: 'Delete acronym' })
-})
+router.delete('/:id', deleteAcronym)
 
 
 export default router
