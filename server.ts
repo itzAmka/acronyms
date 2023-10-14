@@ -1,6 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
+// middlewares
+import { errorMiddleware } from './middlewares/errorMiddleware';
+
 // routes
 import acronymRoutes from './routes/acronymRoutes';
 
@@ -28,6 +31,9 @@ app.use('/api/acronyms', acronymRoutes)
 app.use('*', (req, res) => { 
   res.status(404).json({ error: 'Not found' })
 })
+
+// error middleware
+app.use(errorMiddleware);
 
 app.listen(PORT, () =>
 	console.log(`Server running at http://localhost:${PORT}`),
