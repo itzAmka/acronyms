@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import asyncHandler from 'express-async-handler';
 
 /**
  * @controller Update Acronym
@@ -8,6 +9,6 @@ import { Request, Response } from 'express';
  * @params /:id - acronym id
  * @access Public
  */
-export const updateAcronym = async (req: Request, res: Response) => {
+export const updateAcronym = asyncHandler(async (req: Request, res: Response) => {
   res.status(200).json({ message: 'Update acronym' });
-}
+})
