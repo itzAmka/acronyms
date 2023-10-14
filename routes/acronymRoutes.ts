@@ -28,6 +28,7 @@ router.get('/:id', getAcronym)
  * @route /api/acronyms
  * @method POST
  * @description Create acronym
+ * @body { acronym: string, definition: string} - acronym and definition
  * @access Public
  */
 router.post('/', createAcronym)
