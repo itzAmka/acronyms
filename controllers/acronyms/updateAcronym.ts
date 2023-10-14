@@ -8,6 +8,7 @@ import { prisma } from '../../config/prisma'
  * @method PATCH
  * @description Update acronym
  * @params /:id - acronym id
+ * @body { acronym: string, definition: string} - acronym and definition
  * @access Public
  */
 export const updateAcronym = asyncHandler(async (req: Request, res: Response) => {

@@ -38,6 +38,7 @@ router.post('/', createAcronym)
  * @method PATCH
  * @description Update acronym
  * @params /:id - acronym id
+ * @body { acronym: string, definition: string} - acronym and definition
  * @access Public
  */
 router.patch('/:id', updateAcronym)
