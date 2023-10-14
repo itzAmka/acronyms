@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import asyncHandler from 'express-async-handler';
+import { prisma } from '../../config/prisma'
 
 /**
  * @controller Get Acronyms
@@ -9,5 +10,12 @@ import asyncHandler from 'express-async-handler';
  * @access Public
  */
 export const getAcronyms = asyncHandler(async (req: Request, res: Response) => {
-  res.status(200).json({ message: 'Get acronym by id' })
+  // get all acronyms from db
+  const acronyms = await prisma.acronym.findMany()
+  
+  res.status(200).json({
+    success: true,
+    error: null,
+    results: acronyms,
+  })
 })
