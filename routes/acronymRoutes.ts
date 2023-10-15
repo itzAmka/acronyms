@@ -1,11 +1,11 @@
-import express from 'express'
-import { getAcronyms } from '../controllers/acronyms/getAcronyms'
-import { getAcronym } from '../controllers/acronyms/getAcronym'
-import { createAcronym } from '../controllers/acronyms/createAcronym'
-import { deleteAcronym } from '../controllers/acronyms/deleteAcronym'
-import { updateAcronym } from '../controllers/acronyms/updateAcronym'
+import express from 'express';
+import { getAcronyms } from '../controllers/acronyms/getAcronyms';
+import { getAcronym } from '../controllers/acronyms/getAcronym';
+import { createAcronym } from '../controllers/acronyms/createAcronym';
+import { deleteAcronym } from '../controllers/acronyms/deleteAcronym';
+import { updateAcronym } from '../controllers/acronyms/updateAcronym';
 
-const router = express.Router()
+const router = express.Router();
 
 /**
  * @route /api/acronym
@@ -13,7 +13,7 @@ const router = express.Router()
  * @description Get all acronym
  * @access Public
  */
-router.get('/', getAcronyms)
+router.get('/', getAcronyms);
 
 /**
  * @route /api/acronym/:id
@@ -22,7 +22,7 @@ router.get('/', getAcronyms)
  * @param /:id - acronym id
  * @access Public
  */
-router.get('/:id', getAcronym)
+router.get('/:id', getAcronym);
 
 /**
  * @route /api/acronym
@@ -31,7 +31,7 @@ router.get('/:id', getAcronym)
  * @body { acronym: string, definition: string} - acronym and definition
  * @access Public
  */
-router.post('/', createAcronym)
+router.post('/', createAcronym);
 
 /**
  * @route /api/acronym/:id
@@ -41,7 +41,7 @@ router.post('/', createAcronym)
  * @body { acronym: string, definition: string} - acronym and definition
  * @access Public
  */
-router.patch('/:id', updateAcronym)
+router.patch('/:id', updateAcronym);
 
 /**
  * @route /api/acronym/:id
@@ -50,7 +50,6 @@ router.patch('/:id', updateAcronym)
  * @params /:id - acronym id
  * @access Public
  */
-router.delete('/:id', deleteAcronym)
+router.delete('/:id', deleteAcronym);
 
-
-export default router
+export default router;

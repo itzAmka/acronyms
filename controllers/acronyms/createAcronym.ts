@@ -1,6 +1,6 @@
-import { Request, Response } from 'express'
+import type { Request, Response } from 'express';
 import asyncHandler from 'express-async-handler';
-import { prisma } from '../../config/prisma'
+import { prisma } from '../../config/prisma';
 
 /**
  * @controller Create Acronym
@@ -11,40 +11,39 @@ import { prisma } from '../../config/prisma'
  * @access Public
  */
 export const createAcronym = asyncHandler(async (req: Request, res: Response) => {
-  // get data from req body
-  const { acronym, definition } = req.body
+	// get data from req body
+	const { acronym, definition } = req.body;
 
-  // validate data
-  if (!acronym || !definition) {
-    res.status(400)
-    throw new Error('Please provide `acronym` and `definition` to create acronym')
-  }
+	// validate data
+	if (acronym === '' || definition === '') {
+		res.status(400);
+		throw new Error('Please provide `acronym` and `definition` to create acronym');
+	}
 
-  // check if acronym already exists
-  const acronymExists = await prisma.acronym.findUnique({
-    where: {
-      acronym,
-    }
-  })
+	// check if acronym already exists
+	const acronymExists = await prisma.acronym.findUnique({
+		where: {
+			acronym
+		}
+	});
 
-  // if acronym exists, throw error
-  if (acronymExists) {
-    res.status(400)
-    throw new Error(`Acronym \`${acronymExists.acronym}\` already exists`)
-  }
+	// if acronym exists, throw error
+	if (acronymExists !== null) {
+		res.status(400);
+		throw new Error(`Acronym \`${acronymExists.acronym}\` already exists`);
+	}
 
-  // create acronym
-  const newAcronym = await prisma.acronym.create({
-    data: {
-      acronym,
-      definition,
-    }
-  })
+	// create acronym
+	const newAcronym = await prisma.acronym.create({
+		data: {
+			acronym,
+			definition
+		}
+	});
 
-
-  res.status(200).json({
-    success: true,
-    error: null,
-    results: newAcronym,
-  })
-})
+	res.status(200).json({
+		success: true,
+		error: null,
+		results: newAcronym
+	});
+});

@@ -1,6 +1,6 @@
-import { Request, Response } from 'express'
+import type { Request, Response } from 'express';
 import asyncHandler from 'express-async-handler';
-import { prisma } from '../../config/prisma'
+import { prisma } from '../../config/prisma';
 
 /**
  * @controller Delete Acronym
@@ -11,38 +11,42 @@ import { prisma } from '../../config/prisma'
  * @access Public
  */
 export const deleteAcronym = asyncHandler(async (req: Request, res: Response) => {
-  // get id from req params
-  const { id } = req.params
+	// get id from req params
+	const { id } = req.params;
 
-  // check if acronym exists
-  const acronymExists = await prisma.acronym.findUnique({
-    where: {
-      id,
-    }
-  }).catch((_) => { 
-    // handle errors
-   throw new Error(`Acronym with id \`${id}\` does not exist`)
-  })
+	// check if acronym exists
+	const acronymExists = await prisma.acronym
+		.findUnique({
+			where: {
+				id
+			}
+		})
+		.catch((_) => {
+			// handle errors
+			throw new Error(`Acronym with id \`${id}\` does not exist`);
+		});
 
-  // if acronym does not exist, throw error
-  if (!acronymExists) {
-    throw new Error(`Acronym with id \`${id}\` does not exist`)
-  }
+	// if acronym does not exist, throw error
+	if (acronymExists === null) {
+		throw new Error(`Acronym with id \`${id}\` does not exist`);
+	}
 
-  // delete acronym
-  const deletedAcronym = await prisma.acronym.delete({
-    where: {
-      id,
-    }
-  }).catch((_) => { 
-    // handle errors
-    throw new Error(`Error while deleting acronym with id \`${id}\``)
-  })
+	// delete acronym
+	const deletedAcronym = await prisma.acronym
+		.delete({
+			where: {
+				id
+			}
+		})
+		.catch((_) => {
+			// handle errors
+			throw new Error(`Error while deleting acronym with id \`${id}\``);
+		});
 
-  // return deleted acronym
-  res.status(200).json({
-    success: true,
-    error: null,
-    results: deletedAcronym,
-  })
-})
+	// return deleted acronym
+	res.status(200).json({
+		success: true,
+		error: null,
+		results: deletedAcronym
+	});
+});
