@@ -11,6 +11,7 @@ const router = express.Router();
  * @route /api/acronym
  * @method GET
  * @description Get all acronym
+ * @query limit, page
  * @access Public
  */
 router.get('/', getAcronyms);
