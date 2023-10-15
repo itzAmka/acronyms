@@ -167,4 +167,5 @@ This is a simple API that allows you to create, read, update and delete acronyms
 
 - Website - [amka.dev](https://aminamka.com)
 - GitHub - [itzAmka](https://github.com/itzAmka)
+- X (Twitter) - [@itzAmka](https://twitter.com/itzAmka)
 - Frontend Mentor - [@itzAmka](https://www.frontendmentor.io/profile/AmkaE)
