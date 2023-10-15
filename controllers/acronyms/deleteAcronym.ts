@@ -19,6 +19,9 @@ export const deleteAcronym = asyncHandler(async (req: Request, res: Response) =>
     where: {
       id,
     }
+  }).catch((_) => { 
+    // handle errors
+   throw new Error(`Acronym with id \`${id}\` does not exist`)
   })
 
   // if acronym does not exist, throw error
