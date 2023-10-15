@@ -14,7 +14,7 @@
 		"format": " npx prettier . --write",
 		"lint": "npx eslint . --ext .ts",
 		"lint:fix": "npx eslint . --ext .ts --fix",
-		"push": "git push origin main",
+		"push": "git push origin main"
 	},
 	"keywords": [],
 	"license": "MIT",
