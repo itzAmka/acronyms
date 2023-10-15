@@ -23,6 +23,11 @@ export const getAcronym = asyncHandler(async (req: Request, res: Response) => {
     // if acronym does not exist, throw error
     throw new Error(`Acronym with id \`${id}\` does not exist`)
   })
+
+  // if acronym does not exist, throw error
+  if (!acronym) { 
+    throw new Error(`Acronym with id \`${id}\` does not exist`)
+  }
   
   // return acronym
   res.status(200).json({
