@@ -51,3 +51,120 @@ This is a simple API that allows you to create, read, update and delete acronyms
    or
    pnpm dev
    ```
+
+6. Open [http://localhost:3000](http://localhost:3000) with your API client testing tool to see the result.
+
+### Usage
+
+#### Create an acronym
+
+`POST: /api/acronym`
+
+```json
+// Requests
+{
+	"acronym": "API",
+	"definition": "Application Programming Interface"
+}
+
+// Response
+{
+   "id": "652bd508a99c5753e6dd94ec",
+   "acronym": "API",
+   "definition": "Application Programming Interface",
+   "createdAt": "2023-10-15T12:03:20.914Z",
+   "updatedAt": "2023-10-15T12:03:20.914Z"
+}
+```
+
+#### Get all acronyms
+
+`GET: /api/acronym`
+
+```json
+[
+	{
+		"id": "652bd508a99c5753e6dd94ec",
+		"acronym": "API",
+		"definition": "Application Programming Interface",
+		"createdAt": "2023-10-15T12:03:20.914Z",
+		"updatedAt": "2023-10-15T12:03:20.914Z"
+	},
+	{
+		"id": "652bd508a99c5753e6dd94ec",
+		"acronym": "APIs",
+		"definition": "Application Programming Interfaces",
+		"createdAt": "2023-10-15T12:03:20.914Z",
+		"updatedAt": "2023-10-15T12:03:20.914Z"
+	}
+]
+```
+
+#### Get an acronym by id
+
+`GET: /api/acronym/:id`
+
+```json
+// Response
+{
+	"id": "652bd508a99c5753e6dd94ec",
+	"acronym": "API",
+	"definition": "Application Programming Interface",
+	"createdAt": "2023-10-15T12:03:20.914Z",
+	"updatedAt": "2023-10-15T12:03:20.914Z"
+}
+```
+
+#### Update an acronym
+
+`PATCH: /api/acronym/:id`
+
+```json
+// Response
+{
+	"id": "652bd508a99c5753e6dd94ec",
+	"acronym": "API",
+	"definition": "Application Programming Interface",
+	"createdAt": "2023-10-15T12:03:20.914Z",
+	"updatedAt": "2023-10-15T12:03:20.914Z"
+}
+```
+
+#### Delete an acronym
+
+`DELETE: /api/acronym/:id`
+
+```json
+// Response
+{
+	"id": "652bd508a99c5753e6dd94ec",
+	"acronym": "API",
+	"definition": "Application Programming Interface",
+	"createdAt": "2023-10-15T12:03:20.914Z",
+	"updatedAt": "2023-10-15T12:03:20.914Z"
+}
+```
+
+#### Pagination
+
+`GET: /api/acronym?page=1&limit=10`
+
+```json
+// Response
+{
+	"data": [],
+	"meta": {
+		"totalCoun": 0,
+		"totalPages": 0,
+		"page": 1,
+		"limit": 10,
+		"orderBy": "desc"
+	}
+}
+```
+
+## Author
+
+- Website - [amka.dev](https://aminamka.com)
+- GitHub - [itzAmka](https://github.com/itzAmka)
+- Frontend Mentor - [@itzAmka](https://www.frontendmentor.io/profile/AmkaE)
