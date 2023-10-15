@@ -4,7 +4,7 @@ import { prisma } from '../../config/prisma'
 
 /**
  * @controller Get Acronym
- * @route /api/acronyms/:id
+ * @route /api/acronym/:id
  * @method GET
  * @description Get all acronym
  * @params /:id - acronym id

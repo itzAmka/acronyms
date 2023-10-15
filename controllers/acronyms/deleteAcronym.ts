@@ -4,7 +4,7 @@ import { prisma } from '../../config/prisma'
 
 /**
  * @controller Delete Acronym
- * @route /api/acronyms/:id
+ * @route /api/acronym/:id
  * @method DELETE
  * @description Delete acronym
  * @params /:id - acronym id

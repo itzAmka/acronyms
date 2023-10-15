@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 // routes
-app.use('/api/acronyms', acronymRoutes)
+app.use('/api/acronym', acronymRoutes)
 
 // handle other routes
 app.use('*', (req, res) => { 

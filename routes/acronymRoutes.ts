@@ -8,15 +8,15 @@ import { updateAcronym } from '../controllers/acronyms/updateAcronym'
 const router = express.Router()
 
 /**
- * @route /api/acronyms
+ * @route /api/acronym
  * @method GET
- * @description Get all acronyms
+ * @description Get all acronym
  * @access Public
  */
 router.get('/', getAcronyms)
 
 /**
- * @route /api/acronyms/:id
+ * @route /api/acronym/:id
  * @method GET
  * @description - Get acronym by id
  * @param /:id - acronym id
@@ -25,7 +25,7 @@ router.get('/', getAcronyms)
 router.get('/:id', getAcronym)
 
 /**
- * @route /api/acronyms
+ * @route /api/acronym
  * @method POST
  * @description Create acronym
  * @body { acronym: string, definition: string} - acronym and definition
@@ -34,7 +34,7 @@ router.get('/:id', getAcronym)
 router.post('/', createAcronym)
 
 /**
- * @route /api/acronyms/:id
+ * @route /api/acronym/:id
  * @method PATCH
  * @description Update acronym
  * @params /:id - acronym id
@@ -44,7 +44,7 @@ router.post('/', createAcronym)
 router.patch('/:id', updateAcronym)
 
 /**
- * @route /api/acronyms/:id
+ * @route /api/acronym/:id
  * @method DELETE
  * @description Delete acronym
  * @params /:id - acronym id

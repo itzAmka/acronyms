@@ -4,7 +4,7 @@ import { prisma } from '../../config/prisma'
 
 /**
  * @controller Create Acronym
- * @route /api/acronyms
+ * @route /api/acronym
  * @method POST
  * @description Create acronym
  * @body { acronym: string, definition: string} - acronym and definition
