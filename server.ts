@@ -8,7 +8,7 @@ import { errorMiddleware } from './middlewares/errorMiddleware';
 import acronymRoutes from './routes/acronymRoutes';
 
 // utils
-import { endpoints } from './utils/data';
+import { endpoints, pagination } from './utils/data';
 
 dotenv.config();
 
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-	res.status(200).json({ endpoints });
+	res.status(200).json({ endpoints, pagination });
 });
 
 // routes

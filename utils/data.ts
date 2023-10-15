@@ -30,3 +30,21 @@ export const endpoints = {
 		access: 'Public'
 	}
 };
+
+export const pagination = {
+	limit: {
+		type: 'number',
+		default: 10,
+		description: 'Limit the number of results'
+	},
+	page: {
+		type: 'number',
+		default: 1,
+		description: 'Page number'
+	},
+	orderBy: {
+		type: 'string',
+		default: 'desc',
+		description: 'Order by `asc` or `desc`'
+	}
+};
