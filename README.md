@@ -52,7 +52,7 @@ This is a simple API that allows you to create, read, update and delete acronyms
    pnpm dev
    ```
 
-6. Open [http://localhost:3000](http://localhost:3000) with your API client testing tool to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) with your API client testing tool to see the result. Alternatively, you can use the [Live Link](https://vast-teal-iguana-sari.cyclic.app) to test the API.
 
 ### Usage
 
