@@ -15,7 +15,7 @@ export const createAcronym = asyncHandler(async (req: Request, res: Response) =>
 	const { acronym, definition } = req.body;
 
 	// validate data
-	if (acronym === '' || definition === '') {
+	if (acronym === '' || acronym === undefined || definition === '' || definition === undefined) {
 		res.status(400);
 		throw new Error('Please provide `acronym` and `definition` to create acronym');
 	}
