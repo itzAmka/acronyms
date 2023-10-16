@@ -44,12 +44,12 @@ export const getAcronyms = asyncHandler(async (req: Request, res: Response) => {
 	const totalCount = await prisma.acronym.count();
 
 	// calculate total page
-	const totalPage = Math.ceil(totalCount / limit);
+	const totalPages = Math.ceil(totalCount / limit);
 
 	// if page is greater than total page, throw error
-	if (page > totalPage) {
+	if (page > totalPages) {
 		res.status(400);
-		throw new Error(`You only have ${totalPage} pages. Please stay in the correct range.`);
+		throw new Error(`You only have ${totalPages} pages. Please stay in the correct range.`);
 	}
 
 	// get all acronym from db
@@ -70,7 +70,7 @@ export const getAcronyms = asyncHandler(async (req: Request, res: Response) => {
 				totalCount,
 				limit,
 				page,
-				totalPage,
+				totalPages,
 				orderBy
 			}
 		}
