@@ -47,6 +47,8 @@ export const deleteAcronym = asyncHandler(async (req: Request, res: Response) =>
 	res.status(200).json({
 		success: true,
 		error: null,
-		results: deletedAcronym
+		results: {
+			data: deletedAcronym
+		}
 	});
 });

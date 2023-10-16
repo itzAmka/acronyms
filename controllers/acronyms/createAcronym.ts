@@ -44,6 +44,8 @@ export const createAcronym = asyncHandler(async (req: Request, res: Response) =>
 	res.status(200).json({
 		success: true,
 		error: null,
-		results: newAcronym
+		results: {
+			data: newAcronym
+		}
 	});
 });

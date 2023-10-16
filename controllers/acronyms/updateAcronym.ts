@@ -67,6 +67,8 @@ export const updateAcronym = asyncHandler(async (req: Request, res: Response) =>
 	res.status(200).json({
 		success: true,
 		error: null,
-		results: updatedAcronym
+		results: {
+			data: updatedAcronym
+		}
 	});
 });
