@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 // middlewares
 import { errorMiddleware } from './middlewares/errorMiddleware';
@@ -17,6 +18,12 @@ const PORT = process.env.PORT ?? 3000;
 const app = express();
 
 // middleware
+app.use(
+	cors({
+		origin: process.env.CLIENT_URL ?? 'http://localhost:5173',
+		methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+	})
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
