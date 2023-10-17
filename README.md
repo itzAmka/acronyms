@@ -120,6 +120,12 @@ This is a simple API that allows you to create, read, update and delete acronyms
 `PATCH: /api/acronym/:id`
 
 ```json
+// Requests
+{
+	"acronym": "API - updated",
+	"definition": "Application Programming Interface - updated"
+}
+
 // Response
 {
 	"id": "652bd508a99c5753e6dd94ec",
